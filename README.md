@@ -1,84 +1,79 @@
-# Trading Buddy: Your Daily 10-Minute Options Check-In
+# The 10-Minute Check-In That Keeps You on the Right Side of Every Trade
 
 > Be the casino, not the gambler. Collect premium. Trade small, trade often.
 
-## The core idea
+## The numbers
 
-Most traders check their positions reactively — they log in when they feel like it, miss management windows, and hold losers too long. The Trading Buddy fixes this by running a structured 10-minute daily check-in that reads your live spreadsheet, checks market conditions, and tells you exactly what needs attention.
+| Metric | Target |
+|--------|--------|
+| Monthly return | 3.4% |
+| Annualized | 49% |
+| Position size | 1% of account |
+| Probability of profit | 70% (30 delta) |
+| Time in trade | 45 DTE, managed at day 21 |
 
-It's not an algorithm. It's not a bot that trades for you. It's the disciplined trading partner who shows up every single day, reads the data, and asks the questions you should be asking yourself.
+Most traders check positions reactively.. log in when they feel like it, miss management windows, hold losers too long. Trading Buddy runs a structured daily review. It reads your live spreadsheet, checks market conditions, and tells you exactly what needs attention.
+
+Not an algorithm. Not a bot. The disciplined partner who shows up every day and asks the questions you should be asking yourself.
 
 ---
 
-## The Skill: [trading-buddy.md](trading-buddy.md)
+## What you get each morning
 
-A structured daily options trading review that works with any frontier AI model. Designed to integrate with Google Sheets, market data, and Slack.
+### 1. Market regime check
+VIX-based. Low vol → credit spreads. High vol → cash-secured puts. No guessing. No "feeling bullish."
 
-Add `trading-buddy.md` to your project as a skill file or system prompt.
-
----
-
-## What You Get
-
-### 1. Market Regime Check
-
-VIX-based regime detection. The buddy reads the current VIX and tells you whether to favor credit spreads (low vol) or cash-secured puts (high vol). No guessing. No "feeling bullish."
-
-### 2. Open Position Review
-
-Every open position reviewed against your rules:
+### 2. Open position review
+Every position checked against your rules:
 - Past day 21? Flag it.
-- Near your short strike? Flag it.
-- At 50%+ of max profit? Flag it.
+- Near short strike? Flag it.
+- At 50%+ max profit? Flag it.
 - Expired? Flag it immediately.
 
-The buddy catches what you'd miss scanning a spreadsheet at 6am.
+### 3. Trade suggestions
+2-3 specific trades from your watchlist. Only symbols not already in your book. Sized at 1%. With estimated premium, cash required, and return.
 
-### 3. Trade Suggestions
-
-2-3 specific trades from your pre-trade plan watchlist:
-- Only symbols not already in your book
-- Sized at 1% of account
-- 30 delta, 45 DTE
-- With estimated premium, cash required, and return
-
-### 4. Trading Plan Improvement
-
-One data-backed observation per day. Win rate trending down? Holding period creeping past day 21? Concentration in one sector? The buddy catches the slow drift before it becomes a drawdown.
+### 4. One data-backed observation
+Win rate trending down? Holding period creeping past day 21? Sector concentration building? The buddy catches the slow drift before it becomes a drawdown.
 
 ---
 
-## The Philosophy
-
-This system is built for **selling options premium** — specifically cash-secured puts and put credit spreads. The rules:
+## The rules
 
 | Rule | Value |
 |------|-------|
-| Position size | 1% of account per trade |
-| Delta | 30 (70% probability of profit) |
-| DTE | 45 days to expiration |
-| Management | Close at day 21 or at 50% profit |
-| VIX < 15 | Favor credit spreads (defined risk) |
-| VIX > 15 | Favor CSPs (cash-secured puts) |
-| Target | 3.4% monthly / 49% annualized |
+| Position size | 1% per trade |
+| Delta | 30 (70% POP) |
+| DTE | 45 days |
+| Management | Close at day 21 or 50% profit |
+| VIX < 15 | Credit spreads (defined risk) |
+| VIX > 15 | CSPs (cash-secured puts) |
 
 ---
 
-## Setup
+## Run it
 
-1. **Create your spreadsheet** — Use Google Sheets with tabs for Results, CSP trades, Credit Spreads, and Rules. See the skill file for the exact column structure.
-2. **Configure API access** — You need Google OAuth credentials with Sheets API access. Store them in `~/.claude/.env`.
-3. **Add the skill** — Copy `trading-buddy.md` to `~/.claude/commands/` and run `/trading-buddy`.
-4. **Optional: Automate** — Set up a launchd agent (macOS) or cron job to run daily before market open.
+```
+/trading-buddy
+```
+
+### Setup
+
+1. Google Sheets with tabs: Results, CSP trades, Credit Spreads, Rules
+2. Google OAuth credentials in `~/.claude/.env`
+3. Copy `trading-buddy.md` to `~/.claude/commands/`
+4. Optional: automate with launchd to run before market open
+
+### Resources
+
+- **[Full Options Trading Guide](https://docs.google.com/document/d/1wcsfuWcgfIqCHdttkZfgd3d_odsZCc4FK3XR2M-W_JE/)** — philosophy, math, and mechanics of selling premium
 
 ---
 
-## Resources
+## About
 
-- **[Full Options Trading Guide](https://docs.google.com/document/d/1wcsfuWcgfIqCHdttkZfgd3d_odsZCc4FK3XR2M-W_JE/)** — Step-by-step guide for beginners. Covers the philosophy, the math, and the mechanics of selling options premium.
+Built by Simon Severino... author of Strategy Sprints and Time Freedom with Jay Abraham. Added over $2 Billion in sales to B2B clients in finance, software, and consulting.
 
----
+One of 47 AI skills available to [Sprint Club](https://www.strategysprints.com) members.
 
-## Part of the Strategy Sprints Method
-
-This skill is one of 47 AI skills available to [Sprint Club](https://www.strategysprints.com) members. Built for founders who want to build repeatable systems — for business and for investing.
+*keep rolling, Simon & The Sprinters*
